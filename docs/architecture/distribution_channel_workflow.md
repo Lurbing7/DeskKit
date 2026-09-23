@@ -160,8 +160,8 @@ dotnet test .\DeskBox.sln `
 ```
 
 3. 检查 Git 范围。
-   - 可以提交：`src/`、`installer/`、`scripts/`、`tests/`、`docs/architecture/`、README、CHANGELOG。
-   - 不要提交：`.codex-temp/`、`artifacts/`、`bin/`、`obj/`、本地签名 MSIX、`.cer`、`.pfx`、`store-assets-html/`、临时截图和本地草稿。
+   - 可以提交：`src/`、`installer/`、`scripts/`、`tests/`、`docs/architecture/`、`README`、`CHANGELOG`、`AGENTS.md`、`.dsh/skills/`。
+   - 不要提交：`AGENTS.local.md`、`CLAUDE.local.md`、`artifacts/`、`bin/`、`obj/`、本地签名 MSIX、`.cer`、`.pfx`、`store-assets-html/`、临时截图和本地草稿。
    - 网站 `deskbox-site/` 是否提交要单独决定，不要混进应用发版提交里。
 
 ### 3.2 Direct 官网版打包

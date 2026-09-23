@@ -56,7 +56,7 @@
 
 | 范围 | 原因 |
 | --- | --- |
-| `.codex-temp/` | 本地 SDK、构建输出、签名 MSIX、测试证书、临时文件 |
+| `AGENTS.local.md` / `CLAUDE.local.md` | DSH 本地指令覆盖层：个人/本机专属，不进共享仓库（项目共享的 AI 契约是 `AGENTS.md` 与 `.dsh/skills/`，**要**提交） |
 | `artifacts/` | 打包输出 |
 | `bin/` / `obj/` | 编译产物 |
 | `Output/` | 安装器输出 |
@@ -69,7 +69,7 @@
 | 临时截图、剪贴板图片 | 本地验证材料 |
 | 微信/支付宝收款码测试副本 | Store 政策敏感且不应误进 Store 包或公开提交 |
 
-`.gitignore` 当前已经包含 `.codex-temp/`、`artifacts/`、`bin/`、`obj/` 等主要本地产物目录。新增本地临时目录时，要同步检查 `.gitignore` 和本文档。
+`.gitignore` 当前已经包含 `AGENTS.local.md`、`CLAUDE.local.md`、`artifacts/`、`bin/`、`obj/` 等本地/本机产物。新增本地临时目录时，要同步检查 `.gitignore` 和本文档。
 
 ## 五、发版前检查命令
 
@@ -89,7 +89,7 @@ git ls-files --others --exclude-standard
 检查是否混入构建产物：
 
 ```powershell
-git status --short | Select-String -Pattern '\.codex-temp|artifacts|bin/|obj/|\.msix|\.pfx|\.cer|TestResults|Output|store-assets-html'
+git status --short | Select-String -Pattern 'AGENTS\.local|CLAUDE\.local|artifacts|bin/|obj/|\.msix|\.pfx|\.cer|TestResults|Output|store-assets-html'
 ```
 
 检查 Store 包是否误带 Direct 更新器或捐赠二维码：
@@ -144,7 +144,7 @@ git commit -m "Prepare .NET 10 and Store distribution channel"
 
 提交前人工确认：
 
-- `git status --short` 中没有 `.codex-temp/`、`artifacts/`、MSIX、证书、测试日志。
+- `git status --short` 中没有 `AGENTS.local.md`、`artifacts/`、MSIX、证书、测试日志。
 - `git status --short` 中没有 `store-assets-html/` 这类本地 Store 素材画布目录。
 - 网站改动没有误混进应用提交。
 - README 和 CHANGELOG 只写真实已经完成的内容。
